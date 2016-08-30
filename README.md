@@ -22,6 +22,10 @@ $ wheretogo --help
   Run it without arguments to enter the live search
 ```
 
-# license
+# Notes
+
+Heavily inspired by [Sindre Sorhus](https://sindresorhus.com)'s [`emoj`](https://github.com/sindresorhus/emoj). 
+
+# License
 
 MIT © [Muhammad Mustadi](https://mustadi.xyz)
