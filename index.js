@@ -27,12 +27,11 @@ let wrap = promisify(getGeocode)
 function newDate () {
   let timeStr = new Date()
   // timeStr.setHours(4, 0, 0, 0)
-  console.log(timeStr.toISOString())
+  // console.log(timeStr.toISOString())
   return timeStr.toISOString()
 }
 
 module.exports = str => wrap(str).then(res => {
-  console.dir(res.results[0])
   return res.results.map(place => JSON.stringify(place))
 }).then(googleGeoObject => got.post('https://a.omgwhen.com/Yoosh/YooshFeService/json2/getEventsByGeoEntity', {
   headers: {
@@ -63,6 +62,6 @@ module.exports = str => wrap(str).then(res => {
   if (set.Events.length > 0) {
     return set.Events
   } else {
-    return [{n: "No events", d: "No Events Found"}]
+    return []
   }
 })

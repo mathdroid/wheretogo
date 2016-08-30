@@ -13,7 +13,11 @@ const wheretogo = require('./');
 
 // limit it to 7 results so not to overwhelm the user
 // this also reduces the chance of showing unrelated emojis
-const fetch = mem(str => wheretogo(str).then(arr => arr.map(e => e ? `${chalk.green(moment(e.start).fromNow())}: ${chalk.bold(e.n)}\n${chalk.dim(JSON.stringify(e.d))}\nLink: ${e.tktU ? e.tktU : 'no Ticket Link available'}` : 'No Events Available').join('\n\n')));
+const fetch = mem(str => wheretogo(str).then(arr => arr.length ?
+  arr.map(e => `${chalk.green(moment(e.start).fromNow())}: ${chalk.bold(e.n)} @ ${chalk.yellow(e.v)} ${chalk.dim(`(${e.lat}, ${e.lng})`)}
+  ${chalk.dim(JSON.stringify(e.d))}
+  Link: ${e.tktU ? `${chalk.underline(e.tktU)}` : 'no Ticket Link available'} - by ${chalk.bold(e.c)}: ${chalk.underline('https://www.facebook.com/' + e.cId)}`).join('\n\n') :
+  `No events found`));
 
 const debouncer = debounce(cb => cb(), 200);
 
