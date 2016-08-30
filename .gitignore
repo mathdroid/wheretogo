@@ -1,3 +1,4 @@
+*.sh
 # Logs
 logs
 *.log

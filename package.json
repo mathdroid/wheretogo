@@ -1,0 +1,47 @@
+{
+  "name": "wheretogo",
+  "version": "1.0.0",
+  "description": "grab me some events, will ya",
+  "bin": "cli.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathdroid/wheretogo.git"
+  },
+  "author": "Muhammad Mustadi <muhammad.mustadi@gmail.com> (http://mustadi.xyz)",
+  "license": "MIT",
+  "keywords": [
+    "cli-app",
+    "cli",
+    "event",
+    "events",
+    "facebook",
+    "fbevents",
+    "search",
+    "find",
+    "matching",
+    "relevant",
+    "neural",
+    "networks"
+  ],
+  "bugs": {
+    "url": "https://github.com/mathdroid/wheretogo/issues"
+  },
+  "homepage": "https://github.com/mathdroid/wheretogo#readme",
+  "dependencies": {
+    "geocoder": "^0.2.2",
+    "got": "^6.3.0",
+    "has-ansi": "^2.0.0",
+    "lodash.debounce": "^4.0.8",
+    "log-update": "^1.0.2",
+    "mem": "^0.1.1",
+    "meow": "^3.7.0",
+    "moment": "^2.14.1",
+    "promisify-node": "^0.4.0"
+  }
+}
