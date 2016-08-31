@@ -1,19 +1,20 @@
 #!/usr/bin/env node
-'use strict';
-const dns = require('dns');
-const readline = require('readline');
-const meow = require('meow');
-const logUpdate = require('log-update');
-const chalk = require('chalk');
-const debounce = require('lodash.debounce');
-const hasAnsi = require('has-ansi');
-const mem = require('mem');
-const moment = require('moment');
-const wheretogo = require('./');
+
+'use strict'
+const dns = require('dns')
+const readline = require('readline')
+const meow = require('meow')
+const logUpdate = require('log-update')
+const chalk = require('chalk')
+const debounce = require('lodash.debounce')
+const hasAnsi = require('has-ansi')
+const mem = require('mem')
+const moment = require('moment')
+const wheretogo = require('./')
 
 // limit it to 7 results so not to overwhelm the user
 // this also reduces the chance of showing unrelated emojis
-const fetch = mem(str => wheretogo(str).then(arr => arr.length ?
+const fetch = mem(str => wheretogo(str).then(arr => arr.slice(0, 7).length ?
   arr.map(e => `${chalk.green(moment(e.start).fromNow())}: ${chalk.bold(e.n)} @ ${chalk.yellow(e.v)} ${chalk.dim(`(${e.lat}, ${e.lng})`)}
   ${chalk.dim(JSON.stringify(e.d))}
   Link: ${e.tktU ? `${chalk.underline(e.tktU)}` : 'no Ticket Link available'} - by ${chalk.bold(e.c)}: ${chalk.underline('https://www.facebook.com/' + e.cId)}`).join('\n\n') :
