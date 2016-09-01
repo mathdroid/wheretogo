@@ -3,6 +3,8 @@
 
 No longer you'll be confused where to go. `wheretogo` will provide you Facebook events nearby.
 
+<img src="wtg.gif" width="660">
+
 # Installation
 
 `$ npm i wheretogo -g`
@@ -24,7 +26,7 @@ $ wheretogo --help
 
 # Notes
 
-Heavily inspired by [Sindre Sorhus](https://sindresorhus.com)'s [`emoj`](https://github.com/sindresorhus/emoj). 
+Heavily inspired by [Sindre Sorhus](https://sindresorhus.com)'s [`emoj`](https://github.com/sindresorhus/emoj).
 
 # License
 
