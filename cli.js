@@ -14,7 +14,9 @@ const wheretogo = require('./')
 
 // limit it to 7 results so not to overwhelm the user
 const fetch = mem(str =>
-  wheretogo(str).then(arr => {
+  wheretogo(str).then(res => {
+    let arr = res.events
+    // console.log(res.uri)
     if (!arr.length) return `No events found here 😔  😞`
     return arr.slice(0, 7).map(e => {
       return `${(moment(e.start).isBefore(Date.now()) ? `Started ` : `Starts in `) + chalk.green(moment(e.start).fromNow())}: ${chalk.bold(e.n)} @ ${chalk.yellow(e.v)} ${chalk.dim(`(${e.lat}, ${e.lng})`)}
